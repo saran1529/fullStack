@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextToSpeech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        .container{
+            background-color: dimgrey;
+            margin-left: 35%;
+            margin-top: 18%;
+            width: 500px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .text{
+            width: 80%;
+            height: 25vh;
+        }
+        textarea{
+            width: 100%;
+            height: 25vh;
+            border-radius: 5px;
+        }
+        #b1{
+            margin-top: 10px;
+            width: 150px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        #b5{
+            margin-top: 10px;
+            width: 150px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .btn{
+            display: flex;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text To Speech</h1>
+        <div class="text">
+            <textarea name="" id="textToSpeak" placeholder="Enter Text"></textarea>
+        </div>
+        <div class="btn">
+            <button class="control-btn" id="b1" onclick="speakText(this)">Speech</button>
+            <div>
+                <button class="control-btn" id="b2" onclick="pauseSpeech(this)"><i class="fa-solid fa-pause"></i></button>
+                <button class="control-btn" id="b3" onclick="resumeSpeech(this)"><i class="fa-solid fa-play"></i></button>
+                <button class="control-btn" id="b4" onclick="stopSpeech(this)"><i class="fa-solid fa-stop"></i></button>
+            </div>
+            <button class="control-btn" id="b5" onclick="clearText(this)">Clear</button>
+        </div>
+        
+    </div>
+
+    <script>
+        var speech = new SpeechSynthesisUtterance()
+
+        function resetButtonColors() {
+            const buttons = document.querySelectorAll(".control-btn");
+            buttons.forEach(btn => {
+                btn.style.backgroundColor = "black"
+                btn.style.color = "white"
+            })
+        }
+        function setActiveButton(btn,color){
+            resetButtonColors()
+            btn.style.backgroundColor = color
+        }
+
+        function speakText(btn){
+                setActiveButton(btn, "orange")
+            var textToSpeak = document.getElementById('textToSpeak').value;
+            if (textToSpeak.trim() !== "" ){
+                speech.text = textToSpeak;
+                speech.rate = 1;
+                speech.volume = 1;
+                speech.pitch = 1;
+                window.speechSynthesis.cancel(); 
+                window.speechSynthesis.speak(speech);
+            } else {
+                alert ("Enter Some Text.");
+            }
+        }
+        function pauseSpeech(btn){
+            setActiveButton(btn, "orange")
+
+                if (window.speechSynthesis.speaking && !window.speechSynthesis.paused){
+                    window.speechSynthesis.pause()
+                }
+            }
+        
+        function resumeSpeech(btn){
+            setActiveButton(btn, "orange")
+
+            if (window.speechSynthesis.paused){
+                    window.speechSynthesis.resume()
+                }
+        }
+
+        function stopSpeech(btn){
+            setActiveButton(btn, "orange")
+
+                    window.speechSynthesis.cancel()
+                }
+
+        function clearText(btn){
+            setActiveButton(btn, "orange")
+
+            document.getElementById("textToSpeak").value = ""
+        }
+    </script>
+</body>
+</html>
