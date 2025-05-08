@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buttonFN</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        table{
+            padding: 30px;
+            background-color: cadetblue;
+            width: 30%;
+            margin-left: 35%;
+            margin-top: 20%;
+            border-radius: 10px;
+        }
+        .btn{
+            display: flex;
+            justify-content: right;
+        }
+        p{
+            font-size: xx-large;
+        }
+        button{
+            width: 10vw;
+            height: 40px;
+            background-color: peru;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><h1 id="h1">Virat</h1></td>
+            <td><p id="p1">0</p></td>
+        </tr>
+        <tr>
+            <td><h1 id="h2">Dhoni</h1></td>
+            <td><p id="p2">0</p></td>
+        </tr>
+        <tr class="btn">
+            <td><button id="b1">Virat</button></td>
+            <td><button id="b2">Dhoni</button></td>
+        </tr>
+    </table>
+
+    <script>
+        let r1 = 0
+        let r2 = 0
+        let ba1 = 'Virat'
+        let ba2 = 'Dhoni'
+        document.getElementById("b1").onclick = function(){
+            r1 = r1 + 1
+            document.getElementById("p1").innerHTML = r1
+            updateDom()
+        }
+        document.getElementById("b2").onclick = function(){
+            r2 = r2 + 1
+            document.getElementById("p2").innerHTML = r2
+            updateDom()
+        }
+        function updateDom(){
+            if(r2>r1){
+                document.getElementById("h1").innerHTML = ba2;
+                document.getElementById('p1').innerHTML = r2;
+                document.getElementById('h2').innerHTML = ba1;
+                document.getElementById('p2').innerHTML = r1;
+            } else{
+                document.getElementById("h1").innerHTML = ba1;
+                document.getElementById('p1').innerHTML = r1;
+                document.getElementById('h2').innerHTML = ba2;
+                document.getElementById('p2').innerHTML = r2;
+            }
+        }
+    </script>
+</body>
+</html>

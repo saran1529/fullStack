@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortFlio</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        .empty{
+            width: 100vw;
+            height: 100vh;
+            background-color: burlywood;
+            position: relative;
+        }
+        .topH{
+            width: 100vw;
+            height: 10vh;
+            position: absolute;
+            background-color:black;
+            top: 0px;
+        }
+        .bottomH{
+            width: 100vw;
+            height: 10vh;
+            position: absolute;
+            background-color:black;
+            bottom: 0px;
+        }
+        .box1{
+            /* border: 2px solid black; */
+            width: 30vw;
+            height: 70vh;
+            position: absolute;
+            top: 125px;
+            left: 20px;
+        }
+        .h1{
+            color: wheat;
+            position: absolute;
+            top: 0px;
+            left: 100px;
+            font-family:Arial, Helvetica, sans-serif;
+            display: flex;
+            /* justify-content: space-between; */
+            gap: 45%;
+            align-items:center;
+        }
+        ul{
+            display: flex;
+            gap: 60%;
+            list-style: none;
+        }
+        .profile{
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            font-size: x-large;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(86, 76, 56);
+            border-style: none+;
+        }
+        img{
+            position: absolute;
+            top: 150px;
+            right: 300px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="empty"></div>
+    <div class="topH"></div>
+    <div class="bottomH"></div>
+    <div class="box1"></div>
+    <div class="h1">
+        <h1>PortFolio</h1>
+            <ul>
+                <li>Home</li>
+                <li>Education</li>
+                <li>Skills</li>
+                <li>Experience</li>
+                <li>Contact</li>
+            </ul>
+    </div>
+    <div class="profile">
+        <h1 id="h1">Hi there!</h1>
+        <h2 id="h2">This is Megalathan</h2>
+        <h2 id="h3">Software Developer</h2>
+        <button id="b">ABOUT</button>
+    </div>
+    <div>
+        <img src="/Javascript/img/saran.png" alt="">
+    </div>
+    <script>
+
+        document.getElementById("b").onclick = function(){
+            document.getElementById("h1").innerHTML = "Junior Developer";
+            document.getElementById("h2").innerHTML = "INTERN in NoviTech";
+            document.getElementById("h3").innerHTML = "B.E (MECH)";
+        }
+    </script>
+
+</body>
+</html>

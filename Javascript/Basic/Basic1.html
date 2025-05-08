@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buttonFN</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            border-radius: 10px;
+            margin-left: 25%;
+            margin-top: 25vh;
+            width: 50%;
+            height: 25vh;
+            background-color: bisque;
+            /* margin: 0; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .btn{
+            display: flex;
+            gap: 30px;
+        }
+        .b1{
+            /* width: 100%; */
+            padding: 10px;
+            height: 5vh;
+            border-radius: 5px;
+            background-color:darkseagreen;
+
+        }
+        .b2{
+            /* width: 100%; */
+            padding: 10px;
+            height: 5vh;
+            border-radius: 5px;
+            background-color:darkseagreen;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="q">Have you finsihed your work today</h1>
+        <div class="btn">
+            <button class="b1" id="b1">Yes</button>
+            <button class="b2" id="b2">No</button>
+        </div>
+    </div>
+    <script>
+        var y = "Well done! keep it up!"
+        var n = "You need to work HARD!"
+        document.getElementById("b1").onclick = function(){
+            document.getElementById("q").innerHTML = y;}
+            document.getElementById("b2").onclick = function(){
+                document.getElementById("q").innerHTML = n;
+            }
+        
+    </script>
+</body>
+</html>
