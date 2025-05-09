@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfileUpdate</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        table{
+            background-color: darkgoldenrod;
+            width: 300px;
+            height: 150px;
+            margin-left: 5%;
+            margin-top: 15%;
+        }
+        .input{
+            padding: 20px;
+            display: flex;
+            justify-content:center ;
+            font-size: 22px;
+            border-radius: 10px;
+        }
+        .empty{
+            background-color:black;
+            color: white;
+            padding: 10px;
+            width: 500px;
+            height: 600px;
+            top: 27%;
+            right: 20%;
+            border-radius: 10px;
+            border: 5px solid darkgoldenrod;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            margin-left: 170%;
+        }
+        img{
+            border: 2px solid darkgoldenrod;
+            width: 60%;
+            height: 80%;
+        }
+        .outer{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <section class="outer">
+           <div class="container">
+        <table class="input">
+            <tr class="in">
+                <td><label for="name">Name</label></td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr class="in">
+                <td><label for="img">Image</label></td>
+                <td><input type="text" id="img"></td>
+            </tr>
+            <tr class="in">
+                <td><label for="bio">Bio</label></td>
+                <td><input type="text" id="bio"></td>
+            </tr>
+            <tr>
+                <td><button onclick="updateBio()">Submit</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="empty">
+        <h1 id="h1">Name</h1>
+        <img src="/Javascript/img/IMG_20250316_130808.jpg" alt="" id="src">
+        <h3 id="h3">Bio</h3>
+    </div>
+    </section>
+ 
+
+    <script>
+        function updateBio(){
+            let Name = document.getElementById("name").value;
+            let Img = document.getElementById("img").value;
+            let Bio = document.getElementById("bio").value;
+            document.getElementById("h1").innerHTML = Name;
+            document.getElementById("src").src = Img;
+            document.getElementById("h3").innerHTML = Bio;
+        }
+    </script>
+</body>
+</html>
