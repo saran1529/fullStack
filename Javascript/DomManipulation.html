@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manipulation</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        /* form{
+            margin-left: 35%;
+            margin-top: 10%;
+        } */
+        .f1{
+            background-color: lightcoral;
+            width: 30vw;
+            height: 25vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .f1 h1{
+            display: flex;
+            justify-content: center;
+        } */
+        input{
+            width: 300px;
+            padding: 5px;
+            border-radius: 10px;
+            border: 2px solid whitesmoke;
+        }
+        #s{
+            width: 150px;
+        }
+        .f2{
+            background-color: lightcoral;
+            width: 30vw;
+            height: 25vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" onsubmit="set(event)" class="f1">
+        <h1>Sign Up</h1>
+        <input type="text" placeholder="Name" name="" id="na">
+        <input type="number" placeholder="Number" name="" id="nu">
+        <input type="email" placeholder="Email" name="" id="em">
+        <input type="submit" name="signup" class="s" value="sign up">
+    </form>
+    <form action="" onsubmit="get(event)" class="f2">
+        <h1>Find <span>Name,Number,Email</span></h1>
+        <input type="search" id="se">
+        <input type="submit" class="s">
+        <p id="value"></p>
+    </form>
+    <script>
+        function set(event){
+            event.preventDefault();
+            let name = document.getElementById("na").value;
+            let number = document.getElementById("nu").value;
+            let email = document.getElementById("em").value;
+            localStorage.setItem("Name",name);
+            localStorage.setItem("Number",number);
+            localStorage.setItem("Email",email);
+        }
+
+        function get(event){
+            event.preventDefault();
+            let value = document.getElementById("se").value;
+            let output = localStorage.getItem(value);
+            document.getElementById("value").innerHTML = output;
+        }
+    </script>
+</body>
+</html>
