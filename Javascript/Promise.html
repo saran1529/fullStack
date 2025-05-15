@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .cont{
+            background-color: sienna;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        label{
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <h1>JavaScript Promise</h1>
+        <label for="choiceCheckbox">
+            <input type="checkbox" id="choiceCheckbox">You Are Selected
+        </label>
+
+        <button onclick="check()">RUN</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function check(){
+            const resultDiv = document.getElementById("result");
+            const isChecked = document.getElementById("choiceCheckbox").checked;
+        let myPromise = new Promise(function(resolve,reject){
+            if(isChecked){
+                resolve("success");
+            } else {
+                reject("failed")
+            }
+        })
+
+        myPromise
+            .then(function(success){
+                resultDiv.textContent =success +" "+ "ThankYou for selecting Me!";
+            })
+
+            .catch(function(failed){
+                resultDiv.textContent =failed +" "+ "I need to Learn More";
+            })
+    }
+    </script>
+</body>
+</html>
