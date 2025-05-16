@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        .main{
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            background-color: bisque;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;  
+        }
+        .container input{
+            width: 300px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        .container button{
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color:black;
+            color: white;
+        }
+        .qrCode{
+            background-color: bisque;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; 
+        }
+        .qrCode h3{
+            padding: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>QR Code Generator</h1>
+            <input type="text" id="text" placeholder="Enter your Name or URL">
+            <button onclick="generateQrCode()">Get QR</button>
+        </div>
+        <div class="qrCode">
+            <div id="qrCode"></div>
+            <h3 id="name"></h3>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function generateQrCode(){
+            const text = document.getElementById("text").value;
+            const qrContainer = document.getElementById("qrCode");
+            const nameDisplay = document.getElementById("name");
+
+            qrContainer.innerHTML = "";
+
+            if (text.trim() !== ""){
+                new QRCode(qrContainer,{
+                    text: text,
+                    width:200,
+                    height:200,
+                });
+            localStorage.setItem("Name",text);
+            nameDisplay.innerHTML = "Generated for:" + text;
+        } else {
+            alert("Enter some TEXT or URL")
+        }
+    }
+    </script>
+</body>
+</html>
