@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomUser</title>
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            background-color: brown;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .main1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #user {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="main1">
+        <h1>Random User Generator</h1>
+        <button onclick="fetchData()">Fetch User</button>
+    </div>
+    <div id="user">
+        <h5>clcik to generate User Data</h5>
+    </div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            let container = document.getElementById("user");
+            try {
+                let response = await fetch('https://randomuser.me/api/');
+                let data = await response.json();
+                let user =  data.results[0];
+                let image = user.picture.large;
+                let userName = `${user.name.title}. ${user.name.first} ${user.name.last}`;
+                let gender = user.gender;
+                let email = user.email;
+                container.innerHTML = `
+                    <img src="${image}" alt="user image" style = "border-radius:50%; width:150px; height:150px;">
+                    <h1>${userName}</h1> 
+                    <p>${gender}</p>`
+            } catch (error) {
+                console.error('Error fetching data:',error);
+                container.innerHTML = `<p><b>No User Data found</b></p>`
+            }
+        }
+    </script>
+</body>
+</html>
