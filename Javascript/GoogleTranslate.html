@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StaticGoogleTranslate</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .main{
+            background-color: rgb(21, 84, 86);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+        }
+        #new{
+            margin-bottom: 20px;
+        }
+        table{
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border-radius: 10px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <table>
+            <tr>
+                <td><label for="">Name</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="">Email</label></td>
+                <td><input type="email"></td>
+            </tr>
+            <tr>
+                <td><label for="">Number</label></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td><label for="">Address</label></td>
+                <td><input type="address"></td>
+            </tr>
+            <tr>
+                <td><button>submit</button></td>
+            </tr>
+        </table>
+
+                <p id="new"></p>
+    </div>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit(){
+            new google.translate.TranslateElement({pageLanguage : 'en'}, "new");
+        }
+    </script>
+</body>
+</html>
